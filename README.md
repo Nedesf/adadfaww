@@ -18,11 +18,10 @@ void bubblepp(int *tab,int ile){
 		}
 		x++;
 	}
-	cout<<"DONEO"<<endl;
 }
 void bubble(int *tab, int ile){
 	int bufor;
-	for (int i=1; i<ile; i++){ 
+	for (int i=1; i<ile; i++){
 		for (int j=ile-1; j>0; j--){
 			if (tab[j]<tab[j-1]){
 				bufor=tab[j];
@@ -31,10 +30,8 @@ void bubble(int *tab, int ile){
 				}
 		}
 	}
-	cout<<"DONE"<<endl;
 }
 void bubblep(int *tab, int ile){
-	cout<<"HIER"<<endl;
 	int bufor;
 	bool nadal=true;
 	while (nadal==true){
@@ -48,7 +45,6 @@ void bubblep(int *tab, int ile){
 			}
 		}
 	}
-	cout<<"DONENO"<<endl;
 }
 int main() {
 	clock_t start, stop;
@@ -59,20 +55,25 @@ int main() {
 	int *tab=new int [ile];
 	int *tab2=new int [ile];
 	int *tab3=new int [ile];
-	cout<<"PRZED SORTOWANIEM"<<endl;
 	for (int i=0; i<ile; i++){
 		tab[i]=rand()%10000;
 		tab2[i]=tab[i];
 		tab3[i]=tab[i];
 	}
-	cout<<"PO SORTOWANIU"<<endl;
+	start=clock();
 	bubblepp(tab,ile);
+	stop=clock();
+	czas=(double)(stop-start)/CLOCKS_PER_SEC;
+	cout<<"Najszybsza metoda: "<<czas<<endl;
+	start=clock();
 	bubble(tab2,ile);
+	stop=clock();
+	czas=(double)(stop-start)/CLOCKS_PER_SEC;
+	cout<<"Zwykla metoda: "<<czas<<endl;
+	start=clock();
 	bubblep(tab3,ile);
-	for (int i=0; i<ile; i++){
-		cout<<tab[i]<<endl;
-		cout<<tab2[i]<<endl;
-		cout<<tab3[i]<<endl;
-	}
+	stop=clock();
+	czas=(double)(stop-start)/CLOCKS_PER_SEC;
+	cout<<"Metoda srednia: "<<czas<<endl;
 	return 0;
 }
