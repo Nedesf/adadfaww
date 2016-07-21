@@ -22,7 +22,7 @@ void bubblepp(int *tab,int ile){
 }
 void bubble(int *tab, int ile){
 	int bufor;
-	for (int i=1; i<ile; i++){
+	for (int i=1; i<ile; i++){ 
 		for (int j=ile-1; j>0; j--){
 			if (tab[j]<tab[j-1]){
 				bufor=tab[j];
